@@ -1,4 +1,3 @@
-# Vel: Doing some word cloud because I got curious
 import pandas as pd
 import numpy as np
 import scipy
