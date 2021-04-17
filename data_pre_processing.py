@@ -37,6 +37,7 @@ def main_proc():
     unique_game_reviews.head()
 
     test_merge3 = pd.merge(game_reviews, video_game_sales, left_on=['game', 'platform'], right_on=['Name','Platform'], how='inner')
-    ideal_df = test_merge3.drop(columns=['Name', 'Platform'])
+    # ideal_df = test_merge3.drop(columns=['Name', 'Platform'])
+    ideal_df = test_merge3
 
-    return [unique_vgsales, unique_video_game_sales, unique_game_reviews, ideal_df]
+    return [unique_vgsales, unique_video_game_sales, unique_game_reviews, video_game_sales, ideal_df]
