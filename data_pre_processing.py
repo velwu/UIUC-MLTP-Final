@@ -41,3 +41,10 @@ def main_proc():
     ideal_df = test_merge3
 
     return [unique_vgsales, unique_video_game_sales, unique_game_reviews, video_game_sales, ideal_df]
+
+def filter_by_review_count(input_df, review_count):
+
+    items = input_df.name.value_counts().to_dict().items()
+    df_sub = input_df[input_df.name.isin([key for key, val in items if val > review_count])]
+    
+    return df_sub
