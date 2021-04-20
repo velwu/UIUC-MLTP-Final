@@ -16,3 +16,6 @@
 
 ### Colab space:
 - https://colab.research.google.com/drive/1l3QEnbspS9J6ozISSkZJ4uUxLhbUtU9D?usp=sharing
+
+### Presentation Slides:
+- https://docs.google.com/presentation/d/1SyBTd1StO7o470a_tqbQA6In9zovXGyWu9Z91WM8Lfg/edit?usp=sharing
