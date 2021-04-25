@@ -10,6 +10,7 @@
 ### Data Sources
 - https://www.kaggle.com/rush4ratio/video-game-sales-with-ratings
 - https://www.kaggle.com/gregorut/videogamesales
+- https://www.kaggle.com/skateddu/metacritic-critic-games-reviews-20112019
 
 ### Data backup:
 - https://drive.google.com/drive/folders/1e69JoXdhqqObGFCZ8rXqnSbAi3Wvb5ji?usp=sharing
