@@ -48,3 +48,6 @@ def filter_by_review_count(input_df, review_count):
     df_sub = input_df[input_df.name.isin([key for key, val in items if val > review_count])]
     
     return df_sub
+
+if __name__ == "__main__":
+    print("Warning: This file is intended to be called by another program, not run by itself.")
