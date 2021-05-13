@@ -9,9 +9,9 @@ from nltk.tokenize import word_tokenize
 import ipywidgets
 import data_pre_processing as file_dpp
 
-def model_prep():
+def model_prep(use_num_clusters):
 
-    df_list = file_dpp.main_proc()
+    df_list = file_dpp.main_proc(use_num_clusters)
     merged_game_sale_and_reviews = df_list[-1]
 
     merged_game_sale_and_reviews['review_tokens'] = merged_game_sale_and_reviews['review'].str.lower()
@@ -42,6 +42,18 @@ def get_doc2vec(tagged_doc, param_list):
     
     return d2v_model
 
+# Function to add a column to Doc2Vec embeddings
+def append_col_to_d2v(d2v_model,added_col):
+    '''
+    
+    :param d2v_model: Doc2Vec embeddings 
+    :param added_col: A column that the user want to add to the embedding, should be a DataFrame, series, or numpy array, and has 1D
+    :return: A new Doc2Vec embeddings that is already added the additional column 
+    '''
+    added_col_arr = np.array(added_col).reshape(-1,1)
+    d2v_model.dv.vectors = np.append(d2v_model.dv.vectors,added_col_arr,axis=1)
+    
+    return d2v_model
 
 def run_recommender(d2v_model, merged_game_sale_and_reviews):
     input_game_name = input('Enter game name: ')
@@ -65,7 +77,7 @@ def run_recommender(d2v_model, merged_game_sale_and_reviews):
     filtered_df = filtered_df[filtered_df['User_Score']==closest_user_score]
 
     #Get the following embeddings from the filtered_df indexes 
-    filtered_d2v = d2v_model[filtered_df.index]
+    filtered_d2v = d2v_model.dv[filtered_df.index]
 
     #Average the filtered embeddings to get an average vector in the vector space
     avg_filtered_d2v = np.average(filtered_d2v, axis=0)

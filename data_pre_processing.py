@@ -4,9 +4,12 @@ import sklearn
 from sklearn import preprocessing
 
 #Import the dataset
-def main_proc():
+def main_proc(use_num_clusters:bool):
     vgsales = pd.read_csv('vgsales.csv')
-    video_game_sales = pd.read_csv('Video_Games_Sales_as_at_22_Dec_2016.csv')
+    if use_num_clusters == True:
+        video_game_sales = pd.read_csv('vgsales_clustered.csv')
+    else:
+        video_game_sales = pd.read_csv('Video_Games_Sales_as_at_22_Dec_2016.csv')
     game_reviews = pd.read_csv('metacritic_critic_reviews.csv')
 
     #Looks like Vel changed the format of some fields because of some issues, so I keep this for our benefit
